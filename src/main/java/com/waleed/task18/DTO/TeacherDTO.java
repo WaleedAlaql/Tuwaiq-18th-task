@@ -1,0 +1,27 @@
+package com.waleed.task18.DTO;
+
+import jakarta.validation.constraints.*;
+import lombok.*;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class TeacherDTO {
+
+    @NotEmpty(message = "Name cannot be empty")
+    @Size(min = 3, message = "Name must be at least 3 characters long")
+    private String name;
+
+    @NotNull(message = "Age cannot be null")
+    @Min(value = 22, message = "Age must be at least 22")
+    @Max(value = 70, message = "Age cannot exceed 70")
+    private Integer age;
+
+    @NotEmpty(message = "Email cannot be empty")
+    @Email(message = "Invalid email format")
+    private String email;
+
+    @NotNull(message = "Salary cannot be null")
+    @Positive(message = "Salary must be a positive number")
+    private Double salary;
+}
